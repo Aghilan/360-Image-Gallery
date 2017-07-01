@@ -9,8 +9,8 @@ export default function(state = [], action) {
       ReadApiCall.getImages();
       return state
     case IMAGES_RETRIEVED_SUCCESS:
-    newState = action.payload;
-    return newState;
+      newState = action.payload;
+      return newState;
     default:
       return state;
   }

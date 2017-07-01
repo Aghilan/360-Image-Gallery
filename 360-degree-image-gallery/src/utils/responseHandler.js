@@ -4,8 +4,6 @@ export default function (response, onSuccess) {
   if (response.status >= 200 && response.status < 300) {
     response.json().then(data => {
       if(!data.errors){
-        console.log("Call success")
-        
         store.dispatch(onSuccess(data));
       }
     });

@@ -2,23 +2,28 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as imageActions from '../actions';
+import Docks from './gallery-docks'
 
 class GallerySky extends Component {
 
   componentWillMount() {
     this.props.action.getImages();
   }
-  render() {
 
+  render() {
+    var imageName = this.props.skyImage.name
     return (
       <div>
-        <a-scene>
-          <a-assets>
-            <img id="park" crossOrigin="anonymous" alt="Park" src="http://www.360p.co.uk/wp-content/uploads/2011/05/360-panoramas-truro-park-3-1200x600.jpg" />
-          </a-assets>
-          <a-sky id="image-360" radius="10" src="#park"></a-sky>
-          <a-entity look-controls></a-entity>
-        </a-scene>
+        {
+          (imageName)?
+            (<a-scene>
+              <img id={imageName.split(" ")[0]} src={this.props.skyImage.pano} />
+              <a-sky id="image-360" radius="10" src={'#'+imageName.split(" ")[0]}></a-sky>
+              <a-entity look-controls></a-entity>
+            </a-scene>) : null
+        }
+        <Docks
+          {...this.props}/>
       </div>
     );
   }
@@ -30,7 +35,7 @@ Redux Containers - To map the components to store
 */
 
 function mapStateToProps(state){
-  return {images: state.images};
+  return {images: state.images, skyImage: state.skyImage};
 }
 
 function mapDispatchToProps(dispatch){
