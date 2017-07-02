@@ -17,7 +17,7 @@ class GallerySky extends Component {
         {
           (imageName)?
             (<a-scene>
-              <img id={imageName.split(" ")[0]} src={this.props.skyImage.pano} />
+              <img alt="" id={imageName.split(" ")[0]} src={this.props.skyImage.pano} crossOrigin="anonymous" />
               <a-sky id="image-360" radius="10" src={'#'+imageName.split(" ")[0]}></a-sky>
               <a-entity look-controls></a-entity>
             </a-scene>) : null

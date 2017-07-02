@@ -19,5 +19,45 @@
 }
 
 .docks {
-  position: absolute
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  margin-left: -150px;
+  width: 350px;
+  height: 170px;
+  overflow-x: auto;
+}
+
+.t-cards {
+    min-width: 75px;
+    height: 145px;
+    float: left;
+}
+
+.panel.panel-card {
+    position: relative;
+    overflow: hidden;
+}
+.panel.panel-card .panel-heading {
+    height: 100px;
+    overflow: hidden;
+
+    -webkit-transition: height 600ms ease-in-out;
+            transition: height 600ms ease-in-out;
+}
+.panel.panel-card .panel-heading img {
+  position: absolute;
+  top: 40%;
+  z-index: 1;
+  width: 80%;
+
+    -webkit-transform: translate3d(-50%,-50%,0);
+            transform: translate3d(-50%,-50%,0);
+}
+
+.panel.panel-card:hover .panel-heading {
+    height: 55px;
+
+    -webkit-transition: height 400ms ease-in-out;
+            transition: height 400ms ease-in-out;
 }
